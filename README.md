@@ -107,7 +107,7 @@ cargo build --release
 
 Below is a sample screenshot of the app UI after connecting a wallet and playing a move. Replace this with your own screenshot:
 
-![Rock Paper Scissors Stellar dApp](./screenshot.png)
+![alt text](App.png)
 
 ## �📚 Learn more
 
