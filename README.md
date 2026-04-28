@@ -1,116 +1,144 @@
-# Rock Paper Scissors on Stellar (GDG Event)
+# 🎮 Rock Paper Scissors dApp on Stellar Blockchain
 
-A simple full-stack dApp: a Soroban smart contract for Rock-Paper-Scissors plus a React + Vite frontend using Freighter wallet.
+![Stellar](https://img.shields.io/badge/Stellar-Soroban-blue)
+![React](https://img.shields.io/badge/Frontend-React-green)
+![Vite](https://img.shields.io/badge/Build-Vite-purple)
+![Rust](https://img.shields.io/badge/Contract-Rust-orange)
+
+---
 
 ## 🚀 Project Overview
 
-- **Contract:** Soroban Rust smart contract (`play` function) that compares a player move to a fixed computer move (`rock`) and returns `win`, `draw`, or `lose`.
-- **Frontend:** React app that connects to Freighter, sends an `invokeHostFunction` transaction to the contract on Stellar testnet, and shows transaction status.
-- **Goal:** Build and run local frontend, then interact with the contract using a Freighter wallet.
+A decentralized Rock-Paper-Scissors game built on the Stellar Soroban smart contract platform.
+
+This project demonstrates:
+
+* Smart contract development using Rust
+* Blockchain interaction via frontend (React)
+* Wallet integration using Freighter
+
+Users can play the game by signing transactions through their wallet, making it a real blockchain-based application.
+
+---
+
+## 🎥 Demo
+
+(Add your demo video or GIF here)
+
+---
+
+## 🏗️ Architecture
+
+Frontend (React + Vite)
+↓
+Freighter Wallet
+↓
+Stellar Soroban Smart Contract (Rust)
+
+---
+
+## ✨ Features
+
+* Blockchain-based game logic
+* Smart contract execution on Stellar
+* Freighter wallet integration
+* React-based UI
+* Real transaction interaction
+
+---
 
 ## 📁 Repository Structure
 
-- `ROCKPAPER/Contract/Contract/rps_contract/contracts/hello-world/src/lib.rs` - Soroban contract implementation.
-- `ROCKPAPER/Frontend/src/App.jsx` - React user interface.
-- `ROCKPAPER/Frontend/src/contract.js` - Stellar SDK + Freighter transaction helper.
-- `ROCKPAPER/Frontend/src/wallet.js` - Freighter wallet connect helper.
+* `ROCKPAPER/Contract/Contract/rps_contract/contracts/hello-world/src/lib.rs` - Smart contract
+* `ROCKPAPER/Frontend/src/App.jsx` - UI
+* `ROCKPAPER/Frontend/src/contract.js` - Blockchain interaction
+* `ROCKPAPER/Frontend/src/wallet.js` - Wallet connection
 
-## � Contract Address
+---
 
-The frontend currently uses this deployed contract ID:
+## 🔗 Contract Address
 
 `CAFPUVG553MJ5M5O5Q3MLXNGVVSNSWXL6UWEX3RV5QFWEUKQDBXVEG3V`
 
-If you deploy a new contract, update `CONTRACT_ID` in `ROCKPAPER/Frontend/src/contract.js`.
+---
 
-## �🧠 How the contract works
+## 🧠 Smart Contract Logic
 
-Contract function `play(player_move: Symbol) -> Symbol` does:
-1. Computer move is hardcoded to `rock`.
-2. If `player_move == rock`, returns `draw`.
-3. If player wins rock-paper-scissors, returns `win`.
-4. Otherwise returns `lose`.
+Function: `play(player_move: Symbol) -> Symbol`
 
-## ⚙️ Setup
+* Computer move: `rock` (fixed)
+* Returns:
 
-### 1) Install Prerequisites
+  * `win` → player wins
+  * `draw` → same move
+  * `lose` → player loses
 
-- [Rust + Cargo](https://www.rust-lang.org/tools/install)
-- [Soroban CLI](https://soroban.stellar.org/docs/)
-- [Node.js 20+](https://nodejs.org/)
-- [Freighter Wallet](https://www.freighter.app/) with testnet account
+---
 
-### 2) Build and deploy contract (optional for local testing)
+## ⚙️ Setup Instructions
 
-From `ROCKPAPER/Contract/Contract/rps_contract`:
+### 1. Clone Repository
 
 ```bash
-cd ROCKPAPER/Contract/Contract/rps_contract
-cargo build --release
+git clone <your-repo-link>
+cd ROCKPAPER
 ```
 
-Deploy to testnet using Soroban CLI (if you want to update contract ID):
+### 2. Run Frontend
 
 ```bash
-soroban contract deploy --wasm target/wasm32-unknown-unknown/release/hello_world.wasm --network testnet
-```
-
-> Note: The frontend currently uses a hardcoded contract ID in `ROCKPAPER/Frontend/src/contract.js`.
-
-### 3) Run frontend
-
-```bash
-cd ROCKPAPER/Frontend
+cd Frontend
 npm install
 npm run dev
 ```
 
-Open the Vite dev server URL (usually `http://localhost:5173`).
+### 3. Open Browser
 
-## 🎮 How to use
+http://localhost:5173
 
-1. Click **Connect Freighter Wallet**.
-2. Choose one of the moves: **Rock**, **Paper**, or **Scissors**.
-3. Confirm the transaction in Freighter.
-4. The app displays transaction status and result message.
+---
 
-## 🔧 Important files to edit
-
-- `ROCKPAPER/Frontend/src/contract.js`
-  - `CONTRACT_ID` (set your deployed contract ID)
-  - `server` endpoint uses Soroban testnet currently.
-- `ROCKPAPER/Contract/Contract/rps_contract/contracts/hello-world/src/lib.rs`
-  - Update game logic and moves.
-
-## ✅ Quick commands
+## 🔧 Build Smart Contract
 
 ```bash
-# Start frontend
-cd ROCKPAPER/Frontend
-npm run dev
-
-# Build frontend for production
-npm run build
-
-# Build contract
 cd ROCKPAPER/Contract/Contract/rps_contract
 cargo build --release
 ```
 
-## 🧪 Notes
+---
 
-- This is demo code: contract uses deterministic fixed CPU move and no randomness.
-- In production, do not hardcode contract IDs into client code; use config/env variables.
-- Smart contract errors can be inspected using Soroban CLI logs.
+## 🎮 How to Use
 
-## �️ Screenshot
+1. Connect Freighter Wallet
+2. Choose Rock / Paper / Scissors
+3. Approve transaction
+4. View result
 
-Below is a sample screenshot of the app UI after connecting a wallet and playing a move. Replace this with your own screenshot:
+---
 
-![alt text](App.png)
+## 🔮 Future Improvements
 
-## �📚 Learn more
+* Add randomness to computer move
+* Multiplayer support
+* Better UI/UX
+* Deploy on mainnet
 
-- [Stellar Soroban docs](https://soroban.stellar.org/docs)
-- [Freighter wallet docs](https://developers.stellar.org/docs/freighter/)
-- [Vite + React docs](https://vitejs.dev)
+---
+
+## ⚠️ Note
+
+This project is built for learning and demonstration of blockchain integration using Stellar Soroban.
+
+---
+
+## 📷 Screenshot
+
+![App Screenshot](App.png)
+
+---
+
+## 📚 Learn More
+
+* https://soroban.stellar.org/docs
+* https://developers.stellar.org/docs/freighter/
+* https://vitejs.dev
